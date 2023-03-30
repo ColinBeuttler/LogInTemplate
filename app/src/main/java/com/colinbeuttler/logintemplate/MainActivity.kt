@@ -12,21 +12,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var newUserInfo = createPreview()
-        var registerButton = findViewById<Button>(R.id.register_button)
-        registerButton.setOnClickListener { previewLogIn(newUserInfo) }
+        val newUserInfo = createPreview()
+        val registerButton = findViewById<Button>(R.id.register_button)
+        registerButton.setOnClickListener { previewLogIn() }
     }
 
     private fun createPreview(): LogInInfo {
-        var firstName = findViewById<TextInputEditText>(R.id.text_input_first_name)
-        var lastName = findViewById<TextInputEditText>(R.id.text_input_last_name)
-        var emailInput = findViewById<TextInputEditText>(R.id.text_input_email)
-        var inputNumber = findViewById<TextInputEditText>(R.id.text_input_phone_number)
-        var passwordInput = findViewById<TextInputEditText>(R.id.text_input_password)
-        return LogInInfo(firstName, lastName, emailInput, inputNumber, passwordInput)
+        return LogInInfo(
+            findViewById<TextInputEditText>(R.id.text_input_first_name).text.toString(),
+            findViewById<TextInputEditText>(R.id.text_input_last_name).text.toString(),
+            findViewById<TextInputEditText>(R.id.text_input_email).text.toString(),
+            findViewById<TextInputEditText>(R.id.text_input_phone_number).text.toString(),
+            findViewById<TextInputEditText>(R.id.text_input_password).text.toString()
+        )
     }
-    private fun previewLogIn(userInfo: LogInInfo) {
-        println(userInfo)
-        Toast.makeText(this,userInfo.toString(), Toast.LENGTH_LONG).show()
+    private fun previewLogIn() {
+        val newUserInfo = createPreview()
+        println(newUserInfo)
+        Toast.makeText(this,newUserInfo.toString(), Toast.LENGTH_LONG).show()
     }
 }

@@ -1,9 +1,20 @@
 package com.colinbeuttler.logintemplate
 
-class LogInInfo (
-    var firstName: String,
-    var lastName: String,
-    var email: String,
-    var phoneNumber: Int,
-    var password: String
-)
+import com.google.android.material.textfield.TextInputEditText
+
+ data class LogInInfo(
+    val firstName: String,
+    val lastName: String,
+    val email: String,
+    val phoneNumber: String,
+    val password: String
+
+): java.io.Serializable
+     {
+    override fun toString(): String {
+        return "LogInInfo(firstName=$firstName, lastName=$lastName, email=$email, phoneNumber=$phoneNumber, password=$password)"
+    }
+}
+
+
+
