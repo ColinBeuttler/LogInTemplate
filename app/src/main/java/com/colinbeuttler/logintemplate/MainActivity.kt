@@ -19,23 +19,23 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val newUserInfo = createPreview()
-        val registerButton = findViewById<Button>(R.id.register_button)
+        val registerButton = binding.registerButton
         registerButton.setOnClickListener { previewLogIn() }
     }
 
     private fun createPreview(): LogInInfo {
         return LogInInfo(
-            findViewById<TextInputEditText>(R.id.text_input_first_name).text.toString(),
-            findViewById<TextInputEditText>(R.id.text_input_last_name).text.toString(),
-            findViewById<TextInputEditText>(R.id.text_input_email).text.toString(),
-            findViewById<TextInputEditText>(R.id.text_input_phone_number).text.toString(),
-            findViewById<TextInputEditText>(R.id.text_input_password).text.toString()
+            binding.textInputFirstName.text.toString(),
+            binding.textInputLastName.text.toString(),
+            binding.textInputEmail.text.toString(),
+            binding.textInputPhoneNumber.text.toString(),
+            binding.textInputPassword.text.toString()
         )
     }
+
     private fun previewLogIn() {
         val newUserInfo = createPreview()
         println(newUserInfo)
-        Toast.makeText(this,newUserInfo.toString(), Toast.LENGTH_LONG).show()
+        Toast.makeText(this, newUserInfo.toString(), Toast.LENGTH_LONG).show()
     }
 }
