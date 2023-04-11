@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'kotlin-android'
     id 'org.jetbrains.kotlin.android'
 }
 
@@ -26,6 +25,7 @@ android {
     }
 
     buildFeatures {
+        dataBinding = true
         viewBinding = true
     }
 
